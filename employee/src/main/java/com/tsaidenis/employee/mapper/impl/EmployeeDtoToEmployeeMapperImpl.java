@@ -5,7 +5,9 @@ import com.tsaidenis.employee.mapper.EmployeeDtoToEmployeeMapper;
 import com.tsaidenis.employee.model.Employee;
 import com.tsaidenis.employee.model.Position;
 import com.tsaidenis.employee.model.Sex;
+import org.springframework.stereotype.Component;
 
+@Component
 public class EmployeeDtoToEmployeeMapperImpl implements EmployeeDtoToEmployeeMapper {
     @Override
     public Employee map(EmployeeDto dto) {
@@ -21,7 +23,7 @@ public class EmployeeDtoToEmployeeMapperImpl implements EmployeeDtoToEmployeeMap
                 .setDateOfFirstDay(dto.getDateOfFirstDay())
                 .setPosition(Position.valueOf(dto.getPosition()))
                 .setSalary(dto.getSalary())
-                .setLeader(dto.getIsLeader())
+                .setIsLeader(dto.getIsLeader())
                 .setDeleted(dto.getDeleted())
                 .setDepartmentId(dto.getDepartmentId());
     }

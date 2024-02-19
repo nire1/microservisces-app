@@ -1,0 +1,7 @@
+databaseChangeLog:
+  - include:
+      file: 0.0.1/changelog-create-employee-table.xml
+      relativeToChangelogFile: true
+  - include:
+      file: 0.0.1/changelog-create-employee-table_aud.xml
+      relativeToChangelogFile: true

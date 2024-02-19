@@ -1,6 +1,7 @@
 package com.tsaidenis.employee.controller;
 
 import com.tsaidenis.employee.dto.EmployeeDto;
+import com.tsaidenis.employee.dto.SumDto;
 import com.tsaidenis.employee.model.Employee;
 import jakarta.validation.Valid;
 import jakarta.websocket.server.PathParam;
@@ -13,7 +14,7 @@ import java.util.List;
 public interface EmployeeController {
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping(value = "/employees", consumes = MediaType.APPLICATION_JSON_VALUE)
-    EmployeeDto create(@RequestBody @Valid EmployeeDto dto);
+    Employee create(@RequestBody @Valid EmployeeDto dto);
     @GetMapping("/employees")
     List<Employee> get();
     @GetMapping("/employees/{id}")
@@ -38,10 +39,22 @@ public interface EmployeeController {
     @GetMapping("/employees/{id}/chef")
     Employee getLeader(@PathVariable("id") long id);
 
-    @GetMapping("/employees/{id}/")
-    Employee getByName(@PathVariable("id") long id ,@PathParam("name") String name);
+    @GetMapping("/employees/name")
+    Employee getByName(@PathParam("name") String name);
 
     @GetMapping("/employees/{id}/department")
-    List<EmployeeDto> getEmployeesByDepartment(@PathVariable("id") Long id);
+    List<Employee> getEmployeesByDepartment(@PathVariable("id") Long id);
+
+    @GetMapping("/employees/{id}/sum")
+    SumDto getSumSalary(@PathVariable("id") Long id);
+
+    @GetMapping("/{id}/salary")
+    Double getSumSalDepartment(@PathVariable("id") Long id);
+
+    @GetMapping("/{id}/employee/count")
+    Integer getSumEmployees(@PathVariable("id") Long id);
+
+    @GetMapping("/{id}/namechef")
+    String getNameDepartmentChef(@PathVariable("id") Long id);
 
 }

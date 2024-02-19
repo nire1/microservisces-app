@@ -91,7 +91,7 @@ public class Employee {
     /**
      * Это поле обозначает является ли сотрудник руководителем департамента.
      */
-    private boolean isLeader;
+    private Boolean isLeader;
 
     /**
      * Это поле обозначает удаленного сотрудника.

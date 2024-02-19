@@ -1,0 +1,77 @@
+<databaseChangeLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet author="Denis_Tsai" id="create-sequence-employee">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <sequenceExists sequenceName="employee_id_seq"/>
+            </not>
+        </preConditions>
+        <createSequence sequenceName="employee_id_seq"/>
+    </changeSet>
+
+    <changeSet author="Denis_Tsai" id="create-table-employee">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="employee"/>
+            </not>
+        </preConditions>
+        <createTable tableName="employee">
+            <column autoIncrement="true" name="id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="id_employee_pkey"/>
+            </column>
+            <column name="surname" type="VARCHAR(60)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(60)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="patronymic" type="VARCHAR(60)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="sex" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_birth" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="phone" type="VARCHAR(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="email" type="VARCHAR(60)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_of_first_day" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_of_last_day" type="date">
+                <constraints nullable="true"/>
+            </column>
+            <column name="position" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="salary" type="numeric">
+                <constraints nullable="false"/>
+            </column>
+            <column name="is_leader" type="boolean" defaultValueComputed="false">
+                <constraints nullable="false"/>
+            </column>
+            <column name="deleted" type="boolean" defaultValueComputed="false">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="department_id" type="SERIAL">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <sql>
+            ALTER TABLE employee
+                ADD CONSTRAINT check_salary CHECK (salary&gt;=0),
+            ADD CONSTRAINT check_start_date CHECK (date_of_first_day&gt;date_birth),
+            ADD CONSTRAINT check_end_date CHECK(date_of_last_day&gt;date_of_first_day or date_of_last_day=null)
+        </sql>
+    </changeSet>
+</databaseChangeLog>
+
