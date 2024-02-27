@@ -1,0 +1,7 @@
+databaseChangeLog:
+  - include:
+      file: 0.0.1/create-table-department.xml
+      relativeToChangelogFile: true
+  - include:
+      file: 0.0.1/create-table-salary.xml
+      relativeToChangelogFile: true

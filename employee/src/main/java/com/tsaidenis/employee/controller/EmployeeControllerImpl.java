@@ -3,7 +3,6 @@ package com.tsaidenis.employee.controller;
 import com.tsaidenis.employee.dto.EmployeeDto;
 import com.tsaidenis.employee.dto.SumDto;
 import com.tsaidenis.employee.model.Employee;
-import com.tsaidenis.employee.service.EmployeeService;
 import com.tsaidenis.employee.service.EmployeeServiceImpl;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

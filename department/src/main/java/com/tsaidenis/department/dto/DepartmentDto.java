@@ -34,7 +34,7 @@ public class DepartmentDto {
     private String chefName;
 
     /**
-     * Колличество сотрудников департамента.
+     * Количество сотрудников департамента.
      */
     private Long amountEmployee;
 
