@@ -5,7 +5,7 @@ import com.tsaidenis.department.model.Department;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-@Service
+
 public interface DepartmentService {
     Department create(DepartmentRequest request);
 

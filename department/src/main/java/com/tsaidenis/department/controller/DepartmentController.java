@@ -8,8 +8,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-@RequestMapping("/departments")
-@RestController
+
 public interface DepartmentController {
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
@@ -44,4 +43,7 @@ public interface DepartmentController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping("/{id}")
     void delete(@PathVariable("id") Long id);
+
+    @GetMapping("/test")
+    String getTest();
 }

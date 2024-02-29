@@ -1,8 +1,8 @@
 package com.tsaidenis.department.controller;
 
 import com.tsaidenis.employee.controller.EmployeeController;
-import org.springframework.cloud.openfeign.EnableFeignClients;
+import org.springframework.cloud.openfeign.FeignClient;
 
-@EnableFeignClients("employee")
+@FeignClient("employee")
 public interface EmployeeFeign extends EmployeeController {
 }

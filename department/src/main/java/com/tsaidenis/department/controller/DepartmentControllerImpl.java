@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 @RequiredArgsConstructor
-@RequestMapping("/departments")
 @RestController
 public class DepartmentControllerImpl implements DepartmentController{
 
@@ -60,6 +59,11 @@ public class DepartmentControllerImpl implements DepartmentController{
     @Override
     public DepartmentDto updateUpperDepartment(Long id, Long idUp) {
         return updateUpperDepartment(id,idUp);
+    }
+
+    @Override
+    public String getTest() {
+        return "testsd";
     }
 
     @Override
