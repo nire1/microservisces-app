@@ -2,7 +2,6 @@ package com.tsaidenis.department.service;
 
 import com.tsaidenis.department.dto.DepartmentRequest;
 import com.tsaidenis.department.model.Department;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 

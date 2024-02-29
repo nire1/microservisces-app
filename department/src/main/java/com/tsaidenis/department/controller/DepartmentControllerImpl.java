@@ -4,7 +4,6 @@ import com.tsaidenis.department.dto.DepartmentDto;
 import com.tsaidenis.department.dto.DepartmentRequest;
 import com.tsaidenis.department.service.DepartmentServiceImpl;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
