@@ -7,6 +7,7 @@ import lombok.experimental.Accessors;
 
 @Data
 @Entity
+@Table(name = "salary")
 @Accessors(chain = true)
 public class Salary {
     /**

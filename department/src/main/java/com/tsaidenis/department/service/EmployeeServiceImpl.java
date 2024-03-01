@@ -15,7 +15,7 @@ public class EmployeeServiceImpl {
         return employeeFeign.getSumSalDepartment(id);
     }
 
-    public Double fallbackGetSumSalary(Long id) {
+    public Double fallbackGetSumSalary(Long id,Throwable ex) {
         return 15.00;
     }
 
