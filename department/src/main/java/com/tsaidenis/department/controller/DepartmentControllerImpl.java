@@ -2,6 +2,7 @@ package com.tsaidenis.department.controller;
 
 import com.tsaidenis.department.dto.DepartmentDto;
 import com.tsaidenis.department.dto.DepartmentRequest;
+import com.tsaidenis.department.model.Department;
 import com.tsaidenis.department.service.DepartmentServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,11 +14,9 @@ public class DepartmentControllerImpl implements DepartmentController{
 
     private final DepartmentServiceImpl departmentService;
 
-
-
     @Override
-    public DepartmentDto create(DepartmentRequest request) {
-        return departmentService.from(departmentService.create(request));
+    public Department create(DepartmentRequest request) {
+        return departmentService.create(request);
     }
 
     @Override
@@ -60,10 +59,6 @@ public class DepartmentControllerImpl implements DepartmentController{
         return updateUpperDepartment(id,idUp);
     }
 
-    @Override
-    public String getTest() {
-        return "testsd";
-    }
 
     @Override
     public void delete(Long id) {

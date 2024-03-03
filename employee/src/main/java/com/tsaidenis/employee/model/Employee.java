@@ -12,6 +12,7 @@ import java.util.Date;
  * Этот класс сущность сотрудника.
  */
 @Data
+@Table(name = "employee")
 @Entity
 @Accessors(chain = true)
 @Audited

@@ -7,6 +7,7 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import lombok.Data;
 import lombok.experimental.Accessors;
+
 import java.util.Date;
 @Data
 @Accessors(chain = true)
@@ -82,6 +83,7 @@ public class EmployeeDto {
          * Это поле обозначает является
          * ли сотрудник руководителем департамента.
          */
+
         private Boolean isLeader;
 
         /**

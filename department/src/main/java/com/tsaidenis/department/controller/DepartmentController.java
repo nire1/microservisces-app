@@ -2,6 +2,7 @@ package com.tsaidenis.department.controller;
 
 import com.tsaidenis.department.dto.DepartmentDto;
 import com.tsaidenis.department.dto.DepartmentRequest;
+import com.tsaidenis.department.model.Department;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -12,7 +13,7 @@ import java.util.List;
 public interface DepartmentController {
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-    DepartmentDto create(@RequestBody @Valid DepartmentRequest request);
+    Department create(@RequestBody @Valid DepartmentRequest request);
 
     @GetMapping
     List<DepartmentDto> get();
@@ -44,6 +45,4 @@ public interface DepartmentController {
     @DeleteMapping("/{id}")
     void delete(@PathVariable("id") Long id);
 
-    @GetMapping("/test")
-    String getTest();
 }

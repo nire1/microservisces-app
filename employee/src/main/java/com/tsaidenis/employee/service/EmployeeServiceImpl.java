@@ -26,7 +26,11 @@ public class EmployeeServiceImpl implements EmployeeService{
         if (validationSalary(dto) && validationDate(dto) && validationChefAmount(dto)) {
             return employeeDtoToEmployeeMapper.map(dto);
         } else {
-            return null;
+            String errorMessage =
+                            "Ошибка валидации";
+
+            throw new RuntimeException(errorMessage);
+
         }
     }
 
@@ -66,7 +70,8 @@ public class EmployeeServiceImpl implements EmployeeService{
     public Employee create(EmployeeDto dto) {
 
         Employee employee = from(dto);
-        return employeeRepository.save(employee);
+        employeeRepository.save(employee);
+        return employee;
     }
 
     @Override
@@ -93,8 +98,8 @@ public class EmployeeServiceImpl implements EmployeeService{
         Employee employee = employeeRepository.findEmployeeById(id);
         employee.setDeleted(true);
         employee.setDateOfLastDay(Date.from(Instant.now()));
-        employee.setDepartmentId(null);
         employeeRepository.save(employee);
+
 
     }
 
@@ -134,7 +139,7 @@ public class EmployeeServiceImpl implements EmployeeService{
     @Override
     public Employee getByName(String name) {
         boolean isExist = employeeRepository.existsEmployeeByName(name);
-        if(isExist){
+        if(!isExist){
             String errorMessage = String
                     .format(
                             "Сотрудник = %s с таким именем не существует",

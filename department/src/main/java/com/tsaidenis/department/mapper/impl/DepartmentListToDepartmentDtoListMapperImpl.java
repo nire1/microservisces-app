@@ -17,8 +17,8 @@ public class DepartmentListToDepartmentDtoListMapperImpl implements DepartmentLi
             DepartmentDto departmentDto = new DepartmentDto()
                     .setId(department.getId())
                     .setName(department.getName())
-                    .setCreateDate(department.getCreateDate())
-                    .setUpperDepartment(department.getUpperDepartment());
+                    .setCreateDate(department.getCreateDate());
+
             dtoList.add(departmentDto);
         }
         return dtoList;
