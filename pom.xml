@@ -18,8 +18,8 @@
     <modules>
         <module>department</module>
         <module>employee</module>
-        <module>Eureka</module>
-        <module>api-gateway</module>
+        <module>eureka-server</module>
+        <module>gateway</module>
     </modules>
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
